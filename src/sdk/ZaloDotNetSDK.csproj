@@ -2,7 +2,7 @@
 
   <PropertyGroup>
 	 <!--<targetframework>net452</targetframework>-->
-    <targetframework>netcoreapp2.1</targetframework>
+    <targetframework>net6.0</targetframework>
 	<!--<OutputType>Exe</OutputType>-->
 	<PackageId>vng.zalo.ZaloDotNetSDK</PackageId>
     <Version>1.0.8</Version>
@@ -17,7 +17,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 

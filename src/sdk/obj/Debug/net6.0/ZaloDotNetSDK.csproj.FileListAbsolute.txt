@@ -1,0 +1,12 @@
+D:\GitHub\ZaloDotNetSDK\src\sdk\build\net6.0\ZaloDotNetSDK.deps.json
+D:\GitHub\ZaloDotNetSDK\src\sdk\build\net6.0\ZaloDotNetSDK.dll
+D:\GitHub\ZaloDotNetSDK\src\sdk\build\net6.0\ZaloDotNetSDK.pdb
+D:\GitHub\ZaloDotNetSDK\src\sdk\obj\Debug\net6.0\ZaloDotNetSDK.csproj.AssemblyReference.cache
+D:\GitHub\ZaloDotNetSDK\src\sdk\obj\Debug\net6.0\ZaloDotNetSDK.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitHub\ZaloDotNetSDK\src\sdk\obj\Debug\net6.0\ZaloDotNetSDK.AssemblyInfoInputs.cache
+D:\GitHub\ZaloDotNetSDK\src\sdk\obj\Debug\net6.0\ZaloDotNetSDK.AssemblyInfo.cs
+D:\GitHub\ZaloDotNetSDK\src\sdk\obj\Debug\net6.0\ZaloDotNetSDK.csproj.CoreCompileInputs.cache
+D:\GitHub\ZaloDotNetSDK\src\sdk\obj\Debug\net6.0\ZaloDotNetSDK.dll
+D:\GitHub\ZaloDotNetSDK\src\sdk\obj\Debug\net6.0\refint\ZaloDotNetSDK.dll
+D:\GitHub\ZaloDotNetSDK\src\sdk\obj\Debug\net6.0\ZaloDotNetSDK.pdb
+D:\GitHub\ZaloDotNetSDK\src\sdk\obj\Debug\net6.0\ref\ZaloDotNetSDK.dll

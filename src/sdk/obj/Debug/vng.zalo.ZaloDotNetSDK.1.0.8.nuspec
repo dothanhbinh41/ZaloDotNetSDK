@@ -6,13 +6,12 @@
     <authors>ZaloPlatform</authors>
     <description>Package Description</description>
     <dependencies>
-      <group targetFramework=".NETCoreApp2.1">
-        <dependency id="Microsoft.AspNet.WebApi.Client" version="5.2.9" exclude="Build,Analyzers" />
+      <group targetFramework="net6.0">
         <dependency id="Newtonsoft.Json" version="13.0.1" exclude="Build,Analyzers" />
       </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="D:\GitHub\ZaloDotNetSDK\src\sdk\build\netcoreapp2.1\ZaloDotNetSDK.dll" target="lib\netcoreapp2.1\ZaloDotNetSDK.dll" />
+    <file src="D:\GitHub\ZaloDotNetSDK\src\sdk\build\net6.0\ZaloDotNetSDK.dll" target="lib\net6.0\ZaloDotNetSDK.dll" />
   </files>
 </package>
