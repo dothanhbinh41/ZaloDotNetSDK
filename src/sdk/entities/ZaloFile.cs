@@ -6,23 +6,20 @@ namespace ZaloDotNetSDK
 {
     public class ZaloFile
     {
-        private string name;
-        private ByteArrayContent data;
+        public string Name => name;
+        public ByteArrayContent Data => data;
 
-        public ZaloFile(string path) {
+        readonly string name;
+        readonly ByteArrayContent data; 
+        public ZaloFile(string path)
+        {
             data = new ByteArrayContent(FileUtils.LoadFile(path));
             name = Path.GetFileName(path);
         }
 
-        public string GetName() {
-            return name;
-        }
-
-        public ByteArrayContent GetData() {
-            return data;
-        }
-
-        public void setMediaTypeHeader(string type) {
+   
+        public void SetMediaTypeHeader(string type)
+        {
             data.Headers.ContentType = new MediaTypeHeaderValue(type);
         }
     }

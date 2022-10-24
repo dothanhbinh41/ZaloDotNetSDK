@@ -23,7 +23,7 @@ namespace ZaloDotNetSDK
 
         public string Access_token { get => access_token; set => access_token = value; }
 
-        public JObject excuteRequest(string method, string endPoint,  Dictionary<string, dynamic> param){
+        public JObject ExcuteRequest(string method, string endPoint,  Dictionary<string, dynamic> param){
             if (param == null) {
                 param = new Dictionary<string, dynamic>();
             }
@@ -45,7 +45,7 @@ namespace ZaloDotNetSDK
             {
                 if (param.ContainsKey("file"))
                 {
-                    response = sendHttpUploadRequest(endPoint, param, headers);
+                    response = SendHttpUploadRequest(endPoint, param, headers);
                 }
                 else if (param.ContainsKey("body"))
                 {
@@ -70,31 +70,31 @@ namespace ZaloDotNetSDK
         }
 
         //==========================Article=====================================
-        public JObject createArticle(Article article)
+        public JObject CreateArticle(Article article)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
 
             param.Add("body", JsonUtils.ParseArticle2Json(article).ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/article/create", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/article/create", param);
 
             return result;
         }
 
-        public JObject createVideoArticle(VideoArticle videoArticle)
+        public JObject CreateVideoArticle(VideoArticle videoArticle)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
 
             param.Add("body", JsonUtils.ParseVideoArticle2Json(videoArticle).ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/article/create", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/article/create", param);
 
             return result;
         }
 
-        public JObject updateArticle(Article article, string id)
+        public JObject UpdateArticle(Article article, string id)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -103,12 +103,12 @@ namespace ZaloDotNetSDK
             articleJson.Add("id", id);
             param.Add("body", articleJson.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/article/update", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/article/update", param);
 
             return result;
         }
 
-        public JObject updateVideoArticle(VideoArticle videoArticle, string id)
+        public JObject UpdateVideoArticle(VideoArticle videoArticle, string id)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -117,12 +117,12 @@ namespace ZaloDotNetSDK
             articleJson.Add("id", id);
             param.Add("body", articleJson.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/article/update", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/article/update", param);
 
             return result;
         }
 
-        public JObject deleteArticle(string id)
+        public JObject DeleteArticle(string id)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -131,12 +131,12 @@ namespace ZaloDotNetSDK
             articleJson.Add("id", id);
             param.Add("body", articleJson.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/article/remove", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/article/remove", param);
 
             return result;
         }
 
-        public JObject getsliceArticle(int offset, int limit, string type)
+        public JObject GetsliceArticle(int offset, int limit, string type)
         {
             JObject result = new JObject();
 
@@ -145,24 +145,24 @@ namespace ZaloDotNetSDK
             param.Add("limit", limit.ToString());
             param.Add("type", type);
 
-            result = excuteRequest("GET", "https://openapi.zalo.me/v2.0/article/getslice", param);
+            result = ExcuteRequest("GET", "https://openapi.zalo.me/v2.0/article/getslice", param);
 
             return result;
         }
 
-        public JObject getdetailArticle(string id)
+        public JObject GetdetailArticle(string id)
         {
             JObject result = new JObject();
 
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
             param.Add("id", id);
 
-            result = excuteRequest("GET", "https://openapi.zalo.me/v2.0/article/getdetail", param);
+            result = ExcuteRequest("GET", "https://openapi.zalo.me/v2.0/article/getdetail", param);
 
             return result;
         }
 
-        public JObject verifyArticle(string token)
+        public JObject VerifyArticle(string token)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -171,36 +171,36 @@ namespace ZaloDotNetSDK
             articleJson.Add("token", token);
             param.Add("body", articleJson.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/article/verify", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/article/verify", param);
 
             return result;
         }
 
-        public JObject prepareUploadVideoForArticle(ZaloFile zaloFile)
+        public JObject PrepareUploadVideoForArticle(ZaloFile zaloFile)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
             param.Add("file", zaloFile);
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/article/upload_video/preparevideo", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/article/upload_video/preparevideo", param);
 
             return result;
         }
 
-        public JObject verifyUploadVideoForArticle(string token)
+        public JObject VerifyUploadVideoForArticle(string token)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
             param.Add("token", token);
 
-            result = excuteRequest("GET", "https://openapi.zalo.me/v2.0/article/upload_video/verify", param);
+            result = ExcuteRequest("GET", "https://openapi.zalo.me/v2.0/article/upload_video/verify", param);
 
             return result;
         }
         //==========================Article=====================================
 
         //==========================Message=====================================
-        public JObject sendTextMessageToUserId(string user_id, string content)
+        public JObject SendTextMessageToUserId(string user_id, string content)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -218,12 +218,12 @@ namespace ZaloDotNetSDK
             });
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
 
             return result;
         }
 
-        public JObject sendImageMessageToUserIdByUrl(string user_id, string content, string image_url)
+        public JObject SendImageMessageToUserIdByUrl(string user_id, string content, string image_url)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -256,12 +256,12 @@ namespace ZaloDotNetSDK
             });
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
 
             return result;
         }
 
-        public JObject sendImageMessageToUserIdByAttachmentId(string user_id, string content, string image_attachment_id)
+        public JObject SendImageMessageToUserIdByAttachmentId(string user_id, string content, string image_attachment_id)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -295,12 +295,12 @@ namespace ZaloDotNetSDK
             });
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
 
             return result;
         }
 
-        public JObject sendGifMessageToUserIdByAttachmentId(string user_id, string content, string gif_attachment_id, int gif_width = 120, int gif_height = 120)
+        public JObject SendGifMessageToUserIdByAttachmentId(string user_id, string content, string gif_attachment_id, int gif_width = 120, int gif_height = 120)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -336,12 +336,12 @@ namespace ZaloDotNetSDK
             });
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
 
             return result;
         }
 
-        public JObject sendListElementMessagetoUserId(string user_id, string content, List<Element> elements)
+        public JObject SendListElementMessagetoUserId(string user_id, string content, List<Element> elements)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -369,12 +369,12 @@ namespace ZaloDotNetSDK
             });
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
 
             return result;
         }
 
-        public JObject sendListButtonMessagetoUserId(string user_id, string content, List<Button> buttons)
+        public JObject SendListButtonMessagetoUserId(string user_id, string content, List<Button> buttons)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -401,12 +401,12 @@ namespace ZaloDotNetSDK
             });
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
 
             return result;
         }
 
-        public JObject sendListButtonAndElementMessagetoUserId(string user_id, string content, List<Element> elements, List<Button> buttons)
+        public JObject SendListButtonAndElementMessagetoUserId(string user_id, string content, List<Element> elements, List<Button> buttons)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -435,12 +435,12 @@ namespace ZaloDotNetSDK
             });
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
 
             return result;
         }
 
-        public JObject sendRequestUserProfileToUserId(string user_id, string element_title, string element_subtitle, string url_image)
+        public JObject SendRequestUserProfileToUserId(string user_id, string element_title, string element_subtitle, string url_image)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -475,12 +475,12 @@ namespace ZaloDotNetSDK
             });
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
 
             return result;
         }
 
-        public JObject sendFileToUserId(string user_id, string file_attachment_id)
+        public JObject SendFileToUserId(string user_id, string file_attachment_id)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -505,12 +505,12 @@ namespace ZaloDotNetSDK
             });
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
 
             return result;
         }
 
-        public JObject sendTextMessageToMessageId(string message_id, string content)
+        public JObject SendTextMessageToMessageId(string message_id, string content)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -528,12 +528,12 @@ namespace ZaloDotNetSDK
             });
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
 
             return result;
         }
 
-        public JObject sendImageMessageToMessageIdByUrl(string message_id, string content, string image_url)
+        public JObject SendImageMessageToMessageIdByUrl(string message_id, string content, string image_url)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -567,14 +567,13 @@ namespace ZaloDotNetSDK
             });
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
 
             return result;
         }
 
-        public JObject sendImageMessageToMessageIdByAttachmentId(string message_id, string content, string image_attachment_id)
-        {
-            JObject result = new JObject();
+        public JObject SendImageMessageToMessageIdByAttachmentId(string message_id, string content, string image_attachment_id)
+        { 
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
 
             List<JObject> elementJson = new List<JObject>();
@@ -606,12 +605,10 @@ namespace ZaloDotNetSDK
             });
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
-
-            return result;
+            return ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param); 
         }
 
-        public JObject sendListButtonMessageToMessageId(string message_id, string content, List<Button> buttons)
+        public JObject SendListButtonMessageToMessageId(string message_id, string content, List<Button> buttons)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -638,38 +635,21 @@ namespace ZaloDotNetSDK
             });
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
 
             return result;
         }
 
-        public JObject getAllTagOfOfficialAccount()
+        public JObject GetAllTagOfOfficialAccount()
         {
             JObject result = new JObject();
 
-            result = excuteRequest("GET", "https://openapi.zalo.me/v2.0/oa/tag/gettagsofoa", null);
+            result = ExcuteRequest("GET", "https://openapi.zalo.me/v2.0/oa/tag/gettagsofoa", null);
 
             return result;
         }
 
-        public JObject tagFollower(string user_id, string tag_name)
-        {
-            JObject result = new JObject();
-            Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
-
-            JObject body = JObject.FromObject(new
-            {
-                user_id,
-                tag_name
-            });
-            param.Add("body", body.ToString());
-
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/tag/tagfollower", param);
-
-            return result;
-        }
-
-        public JObject removeTagFromFollower(string user_id, string tag_name)
+        public JObject TagFollower(string user_id, string tag_name)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -681,12 +661,29 @@ namespace ZaloDotNetSDK
             });
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/tag/rmfollowerfromtag", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/tag/tagfollower", param);
 
             return result;
         }
 
-        public JObject deleteTag(string tag_name)
+        public JObject RemoveTagFromFollower(string user_id, string tag_name)
+        {
+            JObject result = new JObject();
+            Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
+
+            JObject body = JObject.FromObject(new
+            {
+                user_id,
+                tag_name
+            });
+            param.Add("body", body.ToString());
+
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/tag/rmfollowerfromtag", param);
+
+            return result;
+        }
+
+        public JObject DeleteTag(string tag_name)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -697,45 +694,45 @@ namespace ZaloDotNetSDK
             });
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/tag/rmtag", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/tag/rmtag", param);
 
             return result;
         }
 
-        public JObject uploadImageForOfficialAccountAPI(ZaloFile zaloFile)
+        public JObject UploadImageForOfficialAccountAPI(ZaloFile zaloFile)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
             param.Add("file", zaloFile);
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/upload/image", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/upload/image", param);
 
             return result;
         }
 
-        public JObject uploadGifForOfficialAccountAPI(ZaloFile zaloFile)
+        public JObject UploadGifForOfficialAccountAPI(ZaloFile zaloFile)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
             param.Add("file", zaloFile);
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/upload/gif", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/upload/gif", param);
 
             return result;
         }
 
-        public JObject uploadFileForOfficialAccountAPI(ZaloFile zaloFile)
+        public JObject UploadFileForOfficialAccountAPI(ZaloFile zaloFile)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
             param.Add("file", zaloFile);
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/upload/file", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/upload/file", param);
 
             return result;
         }
 
-        public JObject getProfileOfFollower(string user_id)
+        public JObject GetProfileOfFollower(string user_id)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -747,39 +744,21 @@ namespace ZaloDotNetSDK
 
             param.Add("data", dataJson.ToString());
 
-            result = excuteRequest("GET", "https://openapi.zalo.me/v2.0/oa/getprofile", param);
+            result = ExcuteRequest("GET", "https://openapi.zalo.me/v2.0/oa/getprofile", param);
 
             return result;
         }
 
-        public JObject getProfileOfOfficialAccount()
+        public JObject GetProfileOfOfficialAccount()
         {
             JObject result = new JObject();
 
-            result = excuteRequest("GET", "https://openapi.zalo.me/v2.0/oa/getoa", null);
+            result = ExcuteRequest("GET", "https://openapi.zalo.me/v2.0/oa/getoa", null);
 
             return result;
         }
 
-        public JObject getListFollower(int offset, int count)
-        {
-            JObject result = new JObject();
-            Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
-
-            JObject dataJson = JObject.FromObject(new
-            {
-                offset,
-                count
-            });
-
-            param.Add("data", dataJson.ToString());
-
-            result = excuteRequest("GET", "https://openapi.zalo.me/v2.0/oa/getfollowers", param);
-
-            return result;
-        }
-
-        public JObject getListRecentChat(int offset, int count)
+        public JObject GetListFollower(int offset, int count)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -792,12 +771,30 @@ namespace ZaloDotNetSDK
 
             param.Add("data", dataJson.ToString());
 
-            result = excuteRequest("GET", "https://openapi.zalo.me/v2.0/oa/listrecentchat", param);
+            result = ExcuteRequest("GET", "https://openapi.zalo.me/v2.0/oa/getfollowers", param);
 
             return result;
         }
 
-        public JObject getListConversationWithUser(long user_id, int offset, int count)
+        public JObject GetListRecentChat(int offset, int count)
+        {
+            JObject result = new JObject();
+            Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
+
+            JObject dataJson = JObject.FromObject(new
+            {
+                offset,
+                count
+            });
+
+            param.Add("data", dataJson.ToString());
+
+            result = ExcuteRequest("GET", "https://openapi.zalo.me/v2.0/oa/listrecentchat", param);
+
+            return result;
+        }
+
+        public JObject GetListConversationWithUser(long user_id, int offset, int count)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -811,12 +808,12 @@ namespace ZaloDotNetSDK
 
             param.Add("data", dataJson.ToString());
 
-            result = excuteRequest("GET", "https://openapi.zalo.me/v2.0/oa/conversation", param);
+            result = ExcuteRequest("GET", "https://openapi.zalo.me/v2.0/oa/conversation", param);
 
             return result;
         }
 
-        public JObject registerIP(string ip, string name)
+        public JObject RegisterIP(string ip, string name)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -828,7 +825,7 @@ namespace ZaloDotNetSDK
             });
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/registerip", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/registerip", param);
 
             return result;
         }
@@ -845,12 +842,12 @@ namespace ZaloDotNetSDK
             });
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/removeip", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/removeip", param);
 
             return result;
         }
 
-        public JObject updateFollowerInfo(string user_id, string name, string phone, string address, int city_id, int district_id)
+        public JObject UpdateFollowerInfo(string user_id, string name, string phone, string address, int city_id, int district_id)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -867,12 +864,12 @@ namespace ZaloDotNetSDK
             });
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/updatefollowerinfo", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/updatefollowerinfo", param);
 
             return result;
         }
 
-        public JObject broadcastArticle(string attachment_id, TargetBroadcastGender gender, List<TargetBroadcastAges> ages=null, List<TargetBroadcastLocations> locations = null, List<TargetBroadcastCities> cities = null, List<TargetBroadcastPlatforms> platforms = null, List<TargetBroadcastTelcos> telcos = null)
+        public JObject BroadcastArticle(string attachment_id, TargetBroadcastGender gender, List<TargetBroadcastAges> ages=null, List<TargetBroadcastLocations> locations = null, List<TargetBroadcastCities> cities = null, List<TargetBroadcastPlatforms> platforms = null, List<TargetBroadcastTelcos> telcos = null)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -965,12 +962,12 @@ namespace ZaloDotNetSDK
             });
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
 
             return result;
         }
 
-        public JObject broadcastLinks(List<Element> elements, TargetBroadcastGender gender, List<TargetBroadcastAges> ages = null, List<TargetBroadcastLocations> locations = null, List<TargetBroadcastCities> cities = null, List<TargetBroadcastPlatforms> platforms = null, List<TargetBroadcastTelcos> telcos = null)
+        public JObject BroadcastLinks(List<Element> elements, TargetBroadcastGender gender, List<TargetBroadcastAges> ages = null, List<TargetBroadcastLocations> locations = null, List<TargetBroadcastCities> cities = null, List<TargetBroadcastPlatforms> platforms = null, List<TargetBroadcastTelcos> telcos = null)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -1058,38 +1055,38 @@ namespace ZaloDotNetSDK
             });
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/oa/message", param);
 
             return result;
         }
         //==========================Message=====================================
 
         //==========================Shop=====================================
-        public JObject createProduct(Product product)
+        public JObject CreateProduct(Product product)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
 
             param.Add("body", JsonUtils.ParseProduct2Json(product).ToString().Replace("\\","").Replace("\"[", "[").Replace("]\"", "]"));
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/store/product/create", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/store/product/create", param);
 
             return result;
         }
 
-        public JObject updateProduct(Product product)
+        public JObject UpdateProduct(Product product)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
 
             param.Add("body", JsonUtils.ParseProduct2Json(product).ToString().Replace("\\", "").Replace("\"[", "[").Replace("]\"", "]"));
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/store/product/update", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/store/product/update", param);
 
             return result;
         }
 
-        public JObject removeProduct(string id)
+        public JObject RemoveProduct(string id)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -1099,24 +1096,24 @@ namespace ZaloDotNetSDK
             });
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/store/product/remove", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/store/product/remove", param);
 
             return result;
         }
 
-        public JObject getdetailProduct(string id)
+        public JObject GetdetailProduct(string id)
         {
             JObject result = new JObject();
 
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
             param.Add("id", id);
 
-            result = excuteRequest("GET", "https://openapi.zalo.me/v2.0/store/product/getproduct", param);
+            result = ExcuteRequest("GET", "https://openapi.zalo.me/v2.0/store/product/getproduct", param);
 
             return result;
         }
 
-        public JObject searchProductByProductCode(int offset, int limit, string code)
+        public JObject SearchProductByProductCode(int offset, int limit, string code)
         {
             JObject result = new JObject();
 
@@ -1125,12 +1122,12 @@ namespace ZaloDotNetSDK
             param.Add("limit", limit.ToString());
             param.Add("code", code);
 
-            result = excuteRequest("GET", "https://openapi.zalo.me/v2.0/store/product/search", param);
+            result = ExcuteRequest("GET", "https://openapi.zalo.me/v2.0/store/product/search", param);
 
             return result;
         }
 
-        public JObject getSliceProduct(int offset, int limit)
+        public JObject GetSliceProduct(int offset, int limit)
         {
             JObject result = new JObject();
 
@@ -1138,12 +1135,12 @@ namespace ZaloDotNetSDK
             param.Add("offset", offset.ToString());
             param.Add("limit", limit.ToString());
 
-            result = excuteRequest("GET", "https://openapi.zalo.me/v2.0/store/product/getproductofoa", param);
+            result = ExcuteRequest("GET", "https://openapi.zalo.me/v2.0/store/product/getproductofoa", param);
 
             return result;
         }
 
-        public JObject getSliceOrder(int offset, int limit, int status)
+        public JObject GetSliceOrder(int offset, int limit, int status)
         {
             JObject result = new JObject();
 
@@ -1152,24 +1149,24 @@ namespace ZaloDotNetSDK
             param.Add("limit", limit.ToString());
             param.Add("status", status.ToString());
 
-            result = excuteRequest("GET", "https://openapi.zalo.me/v2.0/store/order/getorderofoa", param);
+            result = ExcuteRequest("GET", "https://openapi.zalo.me/v2.0/store/order/getorderofoa", param);
 
             return result;
         }
 
-        public JObject getdetailOrder(string id)
+        public JObject GetdetailOrder(string id)
         {
             JObject result = new JObject();
 
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
             param.Add("id", id);
 
-            result = excuteRequest("GET", "https://openapi.zalo.me/v2.0/store/order/getorder", param);
+            result = ExcuteRequest("GET", "https://openapi.zalo.me/v2.0/store/order/getorder", param);
 
             return result;
         }
 
-        public JObject updateStatusOrder(string id, int status, string cancel_reason = null, string edit_reason = null)
+        public JObject UpdateStatusOrder(string id, int status, string cancel_reason = null, string edit_reason = null)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -1201,24 +1198,24 @@ namespace ZaloDotNetSDK
             }
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/store/order/update", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/store/order/update", param);
 
             return result;
         }
 
-        public JObject createOrder(Order order)
+        public JObject CreateOrder(Order order)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
 
             param.Add("body", JsonUtils.ParseOrder2Json(order).ToString().Replace("\\", "").Replace("\"[", "[").Replace("]\"", "]"));
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/store/order/create", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/store/order/create", param);
 
             return result;
         }
 
-        public JObject getSliceCategory(int offset, int limit)
+        public JObject GetSliceCategory(int offset, int limit)
         {
             JObject result = new JObject();
 
@@ -1226,12 +1223,12 @@ namespace ZaloDotNetSDK
             param.Add("offset", offset.ToString());
             param.Add("limit", limit.ToString());
 
-            result = excuteRequest("GET", "https://openapi.zalo.me/v2.0/store/category/getcategoryofoa", param);
+            result = ExcuteRequest("GET", "https://openapi.zalo.me/v2.0/store/category/getcategoryofoa", param);
 
             return result;
         }
 
-        public JObject createCategory(string name, string photo, string description, ShopStatus status)
+        public JObject CreateCategory(string name, string photo, string description, ShopStatus status)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -1241,17 +1238,17 @@ namespace ZaloDotNetSDK
                 name,
                 photo,
                 description,
-                status = status.getValue()
+                status = status.Value
             });
 
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/store/category/create", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/store/category/create", param);
 
             return result;
         }
 
-        public JObject updateCategory(string id, string name, string photo, string description, ShopStatus status)
+        public JObject UpdateCategory(string id, string name, string photo, string description, ShopStatus status)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -1262,29 +1259,29 @@ namespace ZaloDotNetSDK
                 name,
                 photo,
                 description,
-                status = status.getValue()
+                status = status.Value
             });
 
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/store/category/update", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/store/category/update", param);
 
             return result;
         }
 
-        public JObject uploadImageForShopAPI(ZaloFile zaloFile, string uploadType)
+        public JObject UploadImageForShopAPI(ZaloFile zaloFile, string uploadType)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
             param.Add("file", zaloFile);
             param.Add("upload_type", uploadType);
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/store/upload/photo", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/store/upload/photo", param);
 
             return result;
         }
 
-        public JObject createAttributeType(string name)
+        public JObject CreateAttributeType(string name)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -1296,23 +1293,23 @@ namespace ZaloDotNetSDK
 
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/store/product/createattributetype", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/store/product/createattributetype", param);
 
             return result;
         }
 
-        public JObject getAttributeType()
+        public JObject GetAttributeType()
         {
             JObject result = new JObject();
 
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
 
-            result = excuteRequest("GET", "https://openapi.zalo.me/v2.0/store/product/getsliceattributetype", param);
+            result = ExcuteRequest("GET", "https://openapi.zalo.me/v2.0/store/product/getsliceattributetype", param);
 
             return result;
         }
 
-        public JObject createAttribute(string name, string attibuteType)
+        public JObject CreateAttribute(string name, string attibuteType)
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
@@ -1325,12 +1322,12 @@ namespace ZaloDotNetSDK
 
             param.Add("body", body.ToString());
 
-            result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/store/product/createattribute", param);
+            result = ExcuteRequest("POST", "https://openapi.zalo.me/v2.0/store/product/createattribute", param);
 
             return result;
         }
 
-        public JObject getSliceAttribute(int offset, int limit)
+        public JObject GetSliceAttribute(int offset, int limit)
         {
             JObject result = new JObject();
 
@@ -1338,19 +1335,19 @@ namespace ZaloDotNetSDK
             param.Add("offset", offset);
             param.Add("limit", limit);
 
-            result = excuteRequest("GET", "https://openapi.zalo.me/v2.0/store/product/getsliceattribute", param);
+            result = ExcuteRequest("GET", "https://openapi.zalo.me/v2.0/store/product/getsliceattribute", param);
 
             return result;
         }
 
-        public JObject getAttribute(string id)
+        public JObject GetAttribute(string id)
         {
             JObject result = new JObject();
 
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
             param.Add("id", id);
 
-            result = excuteRequest("GET", "https://openapi.zalo.me/v2.0/store/product/getattribute", param);
+            result = ExcuteRequest("GET", "https://openapi.zalo.me/v2.0/store/product/getattribute", param);
 
             return result;
         }

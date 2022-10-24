@@ -1,32 +1,17 @@
-namespace ZaloDotNetSDK {
-    public class ZaloAppInfo {
+namespace ZaloDotNetSDK
+{
+    public class ZaloAppInfo
+    {
+        public long AppId { get; set; }
+        public string SecretKey { get; set; }
+        public string CallbackUrl { get; set; }
 
-        private long _appId;
-        private string _secretKey;
-        private string _callbackUrl;
 
-        public long appId
+        public ZaloAppInfo(long appId, string secretKey, string callbackUrl)
         {
-            get { return _appId; }
-            set { _appId = value; }
-        }
-
-        public string secretKey
-        {
-            get { return _secretKey; }
-            set { _secretKey = value; }
-        }
-
-        public string callbackUrl
-        {
-            get { return _callbackUrl; }
-            set { _callbackUrl = value; }
-        }
-
-        public ZaloAppInfo(long appId, string secretKey, string callbackUrl) {
-            _appId = appId;
-            _secretKey = secretKey;
-            _callbackUrl = callbackUrl;
+            AppId = appId;
+            SecretKey = secretKey;
+            CallbackUrl = callbackUrl;
         }
     }
 }

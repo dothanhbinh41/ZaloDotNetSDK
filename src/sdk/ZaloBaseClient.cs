@@ -101,7 +101,7 @@ namespace ZaloDotNetSDK {
             return response.Content.ReadAsStringAsync().Result;
         }
 
-        protected string sendHttpUploadRequest(string endpoint, Dictionary<string, dynamic> param, Dictionary<string, string> header)
+        protected string SendHttpUploadRequest(string endpoint, Dictionary<string, dynamic> param, Dictionary<string, string> header)
         {
             MultipartFormDataContent form = new MultipartFormDataContent();
 
@@ -119,12 +119,12 @@ namespace ZaloDotNetSDK {
             builder.Query = query.ToString();
 
             ZaloFile file = param["file"];
-            form.Add(file.GetData(), "file", file.GetName());
+            form.Add(file.Data, "file", file.Name);
 
             if (param.ContainsKey("file_thumb"))
             {
                 ZaloFile fileThumb = param["file_thumb"];
-                form.Add(file.GetData(), "file_thumb", file.GetName());
+                form.Add(file.Data, "file_thumb", file.Name);
             }
 
             HttpClient httpClient = new HttpClient();

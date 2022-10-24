@@ -352,7 +352,7 @@ namespace ZaloDotNetSDK.Utils
 
             result["photos"] = JsonConvert.SerializeObject(product.Photos);
 
-            result["status"] = product.Status.getValue();
+            result["status"] = product.Status.Value;
             try
             {
                 if (product.PackageSize != null)
@@ -411,7 +411,7 @@ namespace ZaloDotNetSDK.Utils
                             price = variation.Price,
                             name = variation.Name,
                             code = variation.Code,
-                            status = variation.Status.getValue(),
+                            status = variation.Status.Value,
                             quantity = variation.Quantity,
                             attributes = JsonConvert.SerializeObject(variation.Attributes),
                             package_size,
@@ -437,7 +437,7 @@ namespace ZaloDotNetSDK.Utils
             {
                 name = order.Customer.Name,
                 phone = order.Customer.Phone,
-                user_id = order.Customer.User_id,
+                user_id = order.Customer.UserId,
                 address = order.Customer.Address,
                 district = order.Customer.Dictrict,
                 city = order.Customer.City
@@ -447,18 +447,18 @@ namespace ZaloDotNetSDK.Utils
             foreach(OrderItem orderItem in order.Order_items)
             {
                 JObject variationJson = new JObject();
-                variationJson["product_id"] = orderItem.Product_id;
+                variationJson["product_id"] = orderItem.ProductId;
                 variationJson["quantity"] = orderItem.Quantity;
-                if (orderItem.Variation_id != null)
+                if (orderItem.VariationId != null)
                 {
                     variationJson["variation"] = JObject.FromObject(new
                     {
-                        id = orderItem.Variation_id
+                        id = orderItem.VariationId
                     });
                 }
-                if (orderItem.Partner_item_data != null)
+                if (orderItem.PartnerItemData != null)
                 {
-                    variationJson["partner_item_data"] = orderItem.Partner_item_data;
+                    variationJson["partner_item_data"] = orderItem.PartnerItemData;
                 }
                 variationsJson.Add(variationJson);
             }

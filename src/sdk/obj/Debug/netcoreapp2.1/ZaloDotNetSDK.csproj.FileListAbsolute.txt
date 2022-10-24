@@ -55,3 +55,13 @@ C:\Workplace\ZaloDotNetSDK\src\sdk\obj\Debug\netcoreapp2.1\ZaloDotNetSDK.csproj.
 C:\Workplace\ZaloDotNetSDK\src\sdk\obj\Debug\netcoreapp2.1\ZaloDotNetSDK.dll
 C:\Workplace\ZaloDotNetSDK\src\sdk\obj\Debug\netcoreapp2.1\ZaloDotNetSDK.pdb
 C:\Workplace\ZaloDotNetSDK\src\sdk\obj\Debug\netcoreapp2.1\ZaloDotNetSDK.csproj.AssemblyReference.cache
+D:\GitHub\ZaloDotNetSDK\src\sdk\obj\Debug\netcoreapp2.1\ZaloDotNetSDK.csproj.AssemblyReference.cache
+D:\GitHub\ZaloDotNetSDK\src\sdk\obj\Debug\netcoreapp2.1\ZaloDotNetSDK.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitHub\ZaloDotNetSDK\src\sdk\obj\Debug\netcoreapp2.1\ZaloDotNetSDK.AssemblyInfoInputs.cache
+D:\GitHub\ZaloDotNetSDK\src\sdk\obj\Debug\netcoreapp2.1\ZaloDotNetSDK.AssemblyInfo.cs
+D:\GitHub\ZaloDotNetSDK\src\sdk\obj\Debug\netcoreapp2.1\ZaloDotNetSDK.csproj.CoreCompileInputs.cache
+D:\GitHub\ZaloDotNetSDK\src\sdk\obj\Debug\netcoreapp2.1\ZaloDotNetSDK.dll
+D:\GitHub\ZaloDotNetSDK\src\sdk\obj\Debug\netcoreapp2.1\ZaloDotNetSDK.pdb
+D:\GitHub\ZaloDotNetSDK\src\sdk\build\netcoreapp2.1\ZaloDotNetSDK.deps.json
+D:\GitHub\ZaloDotNetSDK\src\sdk\build\netcoreapp2.1\ZaloDotNetSDK.dll
+D:\GitHub\ZaloDotNetSDK\src\sdk\build\netcoreapp2.1\ZaloDotNetSDK.pdb
