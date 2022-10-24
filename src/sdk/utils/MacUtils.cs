@@ -5,7 +5,7 @@ namespace ZaloDotNetSDK
 {
     public class MacUtils
     {
-        public static string buildMac(string value)
+        public static string BuildMac(string value)
         {
             SHA256 sha256 = SHA256Managed.Create();
             byte[] bytes = Encoding.UTF8.GetBytes(value);

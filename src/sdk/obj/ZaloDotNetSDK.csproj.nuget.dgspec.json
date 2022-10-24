@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Workplace\\ZaloDotNetSDK\\src\\sdk\\ZaloDotNetSDK.csproj": {}
+    "D:\\GitHub\\ZaloDotNetSDK\\src\\sdk\\ZaloDotNetSDK.csproj": {}
   },
   "projects": {
-    "C:\\Workplace\\ZaloDotNetSDK\\src\\sdk\\ZaloDotNetSDK.csproj": {
+    "D:\\GitHub\\ZaloDotNetSDK\\src\\sdk\\ZaloDotNetSDK.csproj": {
       "version": "1.0.8",
       "restore": {
-        "projectUniqueName": "C:\\Workplace\\ZaloDotNetSDK\\src\\sdk\\ZaloDotNetSDK.csproj",
+        "projectUniqueName": "D:\\GitHub\\ZaloDotNetSDK\\src\\sdk\\ZaloDotNetSDK.csproj",
         "projectName": "vng.zalo.ZaloDotNetSDK",
-        "projectPath": "C:\\Workplace\\ZaloDotNetSDK\\src\\sdk\\ZaloDotNetSDK.csproj",
-        "packagesPath": "C:\\Users\\LAP13561-local\\.nuget\\packages\\",
-        "outputPath": "C:\\Workplace\\ZaloDotNetSDK\\src\\sdk\\obj\\",
+        "projectPath": "D:\\GitHub\\ZaloDotNetSDK\\src\\sdk\\ZaloDotNetSDK.csproj",
+        "packagesPath": "C:\\Users\\Edutalk\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub\\ZaloDotNetSDK\\src\\sdk\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\LAP13561-local\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Edutalk\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -46,7 +47,7 @@
           "dependencies": {
             "Microsoft.AspNet.WebApi.Client": {
               "target": "Package",
-              "version": "[5.2.3, )"
+              "version": "[5.2.9, )"
             },
             "Microsoft.NETCore.App": {
               "suppressParent": "All",
@@ -56,7 +57,7 @@
             },
             "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[12.0.2, )"
+              "version": "[13.0.1, )"
             }
           },
           "imports": [
@@ -65,11 +66,12 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100-rc.1.22431.12\\RuntimeIdentifierGraph.json"
         }
       }
     }

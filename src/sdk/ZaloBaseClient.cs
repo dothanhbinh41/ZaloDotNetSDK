@@ -9,7 +9,7 @@ namespace ZaloDotNetSDK {
 
         public bool isDebug = false;
 
-        protected string sendHttpGetRequest(string endpoint, Dictionary<string, dynamic> param, Dictionary<string, string> header) {
+        protected string SendHttpGetRequest(string endpoint, Dictionary<string, dynamic> param, Dictionary<string, string> header) {
             UriBuilder builder = new UriBuilder(endpoint);
             var query = HttpUtility.ParseQueryString(builder.Query);
             if (param != null) {
@@ -34,7 +34,7 @@ namespace ZaloDotNetSDK {
             return httpClient.GetStringAsync(builder.ToString()).Result;
         }
 
-        protected string sendHttpPostRequest(string endpoint, Dictionary<string, dynamic> param, Dictionary<string, string> header) {
+        protected string SendHttpPostRequest(string endpoint, Dictionary<string, dynamic> param, Dictionary<string, string> header) {
             Dictionary<string, string> paramsUrl = new Dictionary<string, string>();
             HttpClient httpClient = new HttpClient();
             if (header != null) {
@@ -66,7 +66,7 @@ namespace ZaloDotNetSDK {
             return response.Content.ReadAsStringAsync().Result;
         }
 
-        protected string sendHttpPostRequestWithBody(string endpoint, Dictionary<string, dynamic> param, string body, Dictionary<string, string> header) {
+        protected string SendHttpPostRequestWithBody(string endpoint, Dictionary<string, dynamic> param, string body, Dictionary<string, string> header) {
             HttpClient httpClient = new HttpClient();
             if (header != null) {
                 foreach (KeyValuePair<string, string> entry in header) {

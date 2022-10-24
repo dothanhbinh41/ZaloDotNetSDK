@@ -10,7 +10,7 @@ namespace ZaloDotNetSDK
         private ByteArrayContent data;
 
         public ZaloFile(string path) {
-            data = new ByteArrayContent(FileUtils.loadFile(path));
+            data = new ByteArrayContent(FileUtils.LoadFile(path));
             name = Path.GetFileName(path);
         }
 

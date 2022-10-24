@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using ZaloDotNetSDK.entities;
-using ZaloDotNetSDK.utils;
+using ZaloDotNetSDK.Utils;
 using ZaloDotNetSDK.entities.oa;
 using ZaloDotNetSDK.entities.shop;
 
@@ -39,7 +39,7 @@ namespace ZaloDotNetSDK
 
             if ("GET".Equals(method.ToUpper()))
             {
-                response = sendHttpGetRequest(endPoint, param, headers);
+                response = SendHttpGetRequest(endPoint, param, headers);
             }
             else
             {
@@ -49,11 +49,11 @@ namespace ZaloDotNetSDK
                 }
                 else if (param.ContainsKey("body"))
                 {
-                    response = sendHttpPostRequestWithBody(endPoint, param, param["body"], headers);
+                    response = SendHttpPostRequestWithBody(endPoint, param, param["body"], headers);
                 }
                 else 
                 {
-                    response = sendHttpPostRequest(endPoint, param, headers);
+                    response = SendHttpPostRequest(endPoint, param, headers);
                 }
             }
             
@@ -75,7 +75,7 @@ namespace ZaloDotNetSDK
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
 
-            param.Add("body", JsonUtils.parseArticle2Json(article).ToString());
+            param.Add("body", JsonUtils.ParseArticle2Json(article).ToString());
 
             result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/article/create", param);
 
@@ -87,7 +87,7 @@ namespace ZaloDotNetSDK
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
 
-            param.Add("body", JsonUtils.parseVideoArticle2Json(videoArticle).ToString());
+            param.Add("body", JsonUtils.ParseVideoArticle2Json(videoArticle).ToString());
 
             result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/article/create", param);
 
@@ -99,7 +99,7 @@ namespace ZaloDotNetSDK
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
 
-            JObject articleJson = JsonUtils.parseArticle2Json(article);
+            JObject articleJson = JsonUtils.ParseArticle2Json(article);
             articleJson.Add("id", id);
             param.Add("body", articleJson.ToString());
 
@@ -113,7 +113,7 @@ namespace ZaloDotNetSDK
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
 
-            JObject articleJson = JsonUtils.parseVideoArticle2Json(videoArticle);
+            JObject articleJson = JsonUtils.ParseVideoArticle2Json(videoArticle);
             articleJson.Add("id", id);
             param.Add("body", articleJson.ToString());
 
@@ -345,7 +345,7 @@ namespace ZaloDotNetSDK
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
-            List<JObject> elementsJson = JsonUtils.parseListElement2Json(elements);
+            List<JObject> elementsJson = JsonUtils.ParseListElement2Json(elements);
 
             JObject body = JObject.FromObject(new
             {
@@ -378,7 +378,7 @@ namespace ZaloDotNetSDK
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
-            List<JObject> buttonsJson = JsonUtils.parseListButton2Json(buttons);
+            List<JObject> buttonsJson = JsonUtils.ParseListButton2Json(buttons);
 
             JObject body = JObject.FromObject(new
             {
@@ -410,8 +410,8 @@ namespace ZaloDotNetSDK
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
-            List<JObject> buttonsJson = JsonUtils.parseListButton2Json(buttons);
-            List<JObject> elementsJson = JsonUtils.parseListElement2Json(elements);
+            List<JObject> buttonsJson = JsonUtils.ParseListButton2Json(buttons);
+            List<JObject> elementsJson = JsonUtils.ParseListElement2Json(elements);
             JObject body = JObject.FromObject(new
             {
                 recipient = new
@@ -615,7 +615,7 @@ namespace ZaloDotNetSDK
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
-            List<JObject> buttonsJson = JsonUtils.parseListButton2Json(buttons);
+            List<JObject> buttonsJson = JsonUtils.ParseListButton2Json(buttons);
 
             JObject body = JObject.FromObject(new
             {
@@ -974,7 +974,7 @@ namespace ZaloDotNetSDK
         {
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
-            List<JObject> elementsJson = JsonUtils.parseListElement2Json(elements);
+            List<JObject> elementsJson = JsonUtils.ParseListElement2Json(elements);
 
             JObject target = new JObject();
             if (ages != null)
@@ -1070,7 +1070,7 @@ namespace ZaloDotNetSDK
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
 
-            param.Add("body", JsonUtils.parseProduct2Json(product).ToString().Replace("\\","").Replace("\"[", "[").Replace("]\"", "]"));
+            param.Add("body", JsonUtils.ParseProduct2Json(product).ToString().Replace("\\","").Replace("\"[", "[").Replace("]\"", "]"));
 
             result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/store/product/create", param);
 
@@ -1082,7 +1082,7 @@ namespace ZaloDotNetSDK
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
 
-            param.Add("body", JsonUtils.parseProduct2Json(product).ToString().Replace("\\", "").Replace("\"[", "[").Replace("]\"", "]"));
+            param.Add("body", JsonUtils.ParseProduct2Json(product).ToString().Replace("\\", "").Replace("\"[", "[").Replace("]\"", "]"));
 
             result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/store/product/update", param);
 
@@ -1211,7 +1211,7 @@ namespace ZaloDotNetSDK
             JObject result = new JObject();
             Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
 
-            param.Add("body", JsonUtils.parseOrder2Json(order).ToString().Replace("\\", "").Replace("\"[", "[").Replace("]\"", "]"));
+            param.Add("body", JsonUtils.ParseOrder2Json(order).ToString().Replace("\\", "").Replace("\"[", "[").Replace("]\"", "]"));
 
             result = excuteRequest("POST", "https://openapi.zalo.me/v2.0/store/order/create", param);
 

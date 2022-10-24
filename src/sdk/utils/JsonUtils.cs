@@ -6,12 +6,12 @@ using ZaloDotNetSDK.entities;
 using ZaloDotNetSDK.entities.oa;
 using ZaloDotNetSDK.entities.shop;
 
-namespace ZaloDotNetSDK.utils
+namespace ZaloDotNetSDK.Utils
 {
     public class JsonUtils
     { 
 
-        public static JObject parseArticle2Json(Article article)
+        public static JObject ParseArticle2Json(Article article)
         {
             JObject result = new JObject();
 
@@ -98,7 +98,7 @@ namespace ZaloDotNetSDK.utils
             return result;
         }
 
-        public static JObject parseVideoArticle2Json(VideoArticle videoArticle)
+        public static JObject ParseVideoArticle2Json(VideoArticle videoArticle)
         {
             JObject result = new JObject();
 
@@ -112,7 +112,7 @@ namespace ZaloDotNetSDK.utils
             return result;
         }
 
-        public static List<JObject> parseListElement2Json(List<Element> elements)
+        public static List<JObject> ParseListElement2Json(List<Element> elements)
         {
             List<JObject> result = new List<JObject>();
 
@@ -139,7 +139,7 @@ namespace ZaloDotNetSDK.utils
                                     type = element.Type,
                                     url = openUrlElement.Url
                                 },
-                                buttons = parseListButton2Json(element.Buttons)
+                                buttons = ParseListButton2Json(element.Buttons)
                             });
                             break;
                         }
@@ -156,7 +156,7 @@ namespace ZaloDotNetSDK.utils
                                     type = element.Type,
                                     payload = queryShowElement.Payload
                                 },
-                                buttons = parseListButton2Json(element.Buttons)
+                                buttons = ParseListButton2Json(element.Buttons)
                             });
                             break;
                         }
@@ -173,7 +173,7 @@ namespace ZaloDotNetSDK.utils
                                     type = element.Type,
                                     payload = queryHideElement.Payload
                                 },
-                                buttons = parseListButton2Json(element.Buttons)
+                                buttons = ParseListButton2Json(element.Buttons)
                             });
                             break;
                         }
@@ -194,7 +194,7 @@ namespace ZaloDotNetSDK.utils
                                         phone_code = openSMSElement.Phone_code
                                     }
                                 },
-                                buttons = parseListButton2Json(element.Buttons)
+                                buttons = ParseListButton2Json(element.Buttons)
                             });
                             break;
                         }
@@ -214,7 +214,7 @@ namespace ZaloDotNetSDK.utils
                                         phone_code = openPhoneElement.Phone_code
                                     }
                                 },
-                                buttons = parseListButton2Json(element.Buttons)
+                                buttons = ParseListButton2Json(element.Buttons)
                             });
                             break;
                         }
@@ -225,7 +225,7 @@ namespace ZaloDotNetSDK.utils
             return result;
         }
 
-        public static List<JObject> parseListButton2Json(List<Button> buttons)
+        public static List<JObject> ParseListButton2Json(List<Button> buttons)
 
 
         {
@@ -312,7 +312,7 @@ namespace ZaloDotNetSDK.utils
             return result;
         }
 
-        public static JObject parseProduct2Json(Product product)
+        public static JObject ParseProduct2Json(Product product)
         {
             JObject result = new JObject();
             try
@@ -429,7 +429,7 @@ namespace ZaloDotNetSDK.utils
             return result;
         }
 
-        public static JObject parseOrder2Json(Order order)
+        public static JObject ParseOrder2Json(Order order)
         {
             JObject result = new JObject();
 

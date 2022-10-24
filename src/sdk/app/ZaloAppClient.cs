@@ -24,7 +24,7 @@ namespace ZaloDotNetSDK {
                 param.Add("app_id", _appInfo.appId.ToString());
                 param.Add("app_secret", _appInfo.secretKey);
                 param.Add("code", oauthCode);
-                response = sendHttpGetRequest(ACCESSTOKEN_ENPOINT, param, APIConfig.DEFAULT_HEADER);
+                response = SendHttpGetRequest(ACCESSTOKEN_ENPOINT, param, APIConfig.DEFAULT_HEADER);
                 return JObject.Parse(response);
             }
             catch (Exception e)
@@ -40,7 +40,7 @@ namespace ZaloDotNetSDK {
                 Dictionary<string, dynamic> param = new Dictionary<string, dynamic>();
                 param.Add("access_token", accessToken);
                 param.Add("fields", fields);
-                response = sendHttpGetRequest(GET_PROFILE_ENPOINT, param, APIConfig.DEFAULT_HEADER);
+                response = SendHttpGetRequest(GET_PROFILE_ENPOINT, param, APIConfig.DEFAULT_HEADER);
                 return JObject.Parse(response);
             }
             catch (Exception e)
@@ -58,7 +58,7 @@ namespace ZaloDotNetSDK {
                 param.Add("offset", offset.ToString());
                 param.Add("limit", limit.ToString());
                 param.Add("fields", fields);
-                response = sendHttpGetRequest(GET_FRIENDS_ENPOINT, param, APIConfig.DEFAULT_HEADER);
+                response = SendHttpGetRequest(GET_FRIENDS_ENPOINT, param, APIConfig.DEFAULT_HEADER);
                 return JObject.Parse(response);
             }
             catch (Exception e)
@@ -76,7 +76,7 @@ namespace ZaloDotNetSDK {
                 param.Add("offset", offset.ToString());
                 param.Add("limit", limit.ToString());
                 param.Add("fields", fields);
-                response = sendHttpGetRequest(GET_INVITABLE_FRIENDS_ENPOINT, param, APIConfig.DEFAULT_HEADER);
+                response = SendHttpGetRequest(GET_INVITABLE_FRIENDS_ENPOINT, param, APIConfig.DEFAULT_HEADER);
                 return JObject.Parse(response);
             }
             catch (Exception e)
@@ -93,7 +93,7 @@ namespace ZaloDotNetSDK {
                 param.Add("access_token", accessToken);
                 param.Add("message", message);
                 param.Add("link", link);
-                response = sendHttpPostRequest(POST_FEED_ENPOINT, param, APIConfig.DEFAULT_HEADER);
+                response = SendHttpPostRequest(POST_FEED_ENPOINT, param, APIConfig.DEFAULT_HEADER);
                 return JObject.Parse(response);
             }
             catch (Exception e)
@@ -110,7 +110,7 @@ namespace ZaloDotNetSDK {
                 param.Add("access_token", accessToken);
                 param.Add("to", String.Join(",", toUserIds));
                 param.Add("message", message);
-                response = sendHttpPostRequest(SEND_APP_REQUEST_ENPOINT, param, APIConfig.DEFAULT_HEADER);
+                response = SendHttpPostRequest(SEND_APP_REQUEST_ENPOINT, param, APIConfig.DEFAULT_HEADER);
                 return JObject.Parse(response);
             }
             catch (Exception e)
@@ -128,7 +128,7 @@ namespace ZaloDotNetSDK {
                 param.Add("to", userId.ToString());
                 param.Add("message", message);
                 param.Add("link", link);
-                response = sendHttpPostRequest(SEND_MESSAGE_ENDPOINT, param, APIConfig.DEFAULT_HEADER);
+                response = SendHttpPostRequest(SEND_MESSAGE_ENDPOINT, param, APIConfig.DEFAULT_HEADER);
                 return JObject.Parse(response);
             }
             catch (Exception e)

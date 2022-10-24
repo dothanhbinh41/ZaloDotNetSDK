@@ -6,7 +6,7 @@ namespace ZaloDotNetSDK
 {
     public class FileUtils
     {
-        public static byte[] loadFile(String path)
+        public static byte[] LoadFile(string path)
         {
             if (path.Contains("http")) {
                 return new WebClient().DownloadData(path);
