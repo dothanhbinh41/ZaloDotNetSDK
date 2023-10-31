@@ -3,13 +3,14 @@ using System.Web;
 using System.Net.Http;
 using System.Collections.Generic;
 using System.Text;
+using System.Net;
 
 namespace ZaloDotNetSDK {
     public class ZaloBaseClient {
 
         public bool isDebug = false;
 
-        protected string SendHttpGetRequest(string endpoint, Dictionary<string, dynamic> param, Dictionary<string, string> header) {
+        protected string sendHttpGetRequest(string endpoint, Dictionary<string, dynamic> param, Dictionary<string, string> header) {
             UriBuilder builder = new UriBuilder(endpoint);
             var query = HttpUtility.ParseQueryString(builder.Query);
             if (param != null) {
@@ -20,7 +21,7 @@ namespace ZaloDotNetSDK {
                 }
             }
             builder.Query = query.ToString();
-
+            System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             HttpClient httpClient = new HttpClient();
             if (header != null) {
                 foreach (KeyValuePair<string, string> entry in header) {
@@ -34,8 +35,9 @@ namespace ZaloDotNetSDK {
             return httpClient.GetStringAsync(builder.ToString()).Result;
         }
 
-        protected string SendHttpPostRequest(string endpoint, Dictionary<string, dynamic> param, Dictionary<string, string> header) {
+        protected string sendHttpPostRequest(string endpoint, Dictionary<string, dynamic> param, Dictionary<string, string> header) {
             Dictionary<string, string> paramsUrl = new Dictionary<string, string>();
+            System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             HttpClient httpClient = new HttpClient();
             if (header != null) {
                 foreach (KeyValuePair<string, string> entry in header) {
@@ -66,8 +68,10 @@ namespace ZaloDotNetSDK {
             return response.Content.ReadAsStringAsync().Result;
         }
 
-        protected string SendHttpPostRequestWithBody(string endpoint, Dictionary<string, dynamic> param, string body, Dictionary<string, string> header) {
+        protected string sendHttpPostRequestWithBody(string endpoint, Dictionary<string, dynamic> param, string body, Dictionary<string, string> header) {
+            System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             HttpClient httpClient = new HttpClient();
+
             if (header != null) {
                 foreach (KeyValuePair<string, string> entry in header) {
                     httpClient.DefaultRequestHeaders.Add(entry.Key, entry.Value);
@@ -101,7 +105,7 @@ namespace ZaloDotNetSDK {
             return response.Content.ReadAsStringAsync().Result;
         }
 
-        protected string SendHttpUploadRequest(string endpoint, Dictionary<string, dynamic> param, Dictionary<string, string> header)
+        protected string sendHttpUploadRequest(string endpoint, Dictionary<string, dynamic> param, Dictionary<string, string> header)
         {
             MultipartFormDataContent form = new MultipartFormDataContent();
 
@@ -119,14 +123,15 @@ namespace ZaloDotNetSDK {
             builder.Query = query.ToString();
 
             ZaloFile file = param["file"];
-            form.Add(file.Data, "file", file.Name);
+            form.Add(file.GetData(), "file", file.GetName());
 
             if (param.ContainsKey("file_thumb"))
             {
                 ZaloFile fileThumb = param["file_thumb"];
-                form.Add(file.Data, "file_thumb", file.Name);
+                form.Add(file.GetData(), "file_thumb", file.GetName());
             }
 
+            System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             HttpClient httpClient = new HttpClient();
             if (header != null)
             {
